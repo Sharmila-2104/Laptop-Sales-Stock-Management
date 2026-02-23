@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Laptop>
+
+<div class="container mt-4">
+
+    <h3 class="text-center">Ending Stock Report</h3>
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Brand</th>
+                <th>Model</th>
+                <th>Stock</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Brand</td>
+                    <td>@item.Model</td>
+                    <td>@item.StockQty</td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+
+</div>

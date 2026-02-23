@@ -1,0 +1,38 @@
+﻿@model Laptop
+
+<div class="container col-md-6 mt-4">
+    <h3>Edit Laptop</h3>
+
+    <form asp-action="Edit">
+
+        <input type="hidden" asp-for="Id" />
+
+        <div class="mb-3">
+            <label asp-for="Brand"></label>
+            <input asp-for="Brand" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Model"></label>
+            <input asp-for="Model" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="StockQty"></label>
+            <input asp-for="StockQty" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Price"></label>
+            <input asp-for="Price" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="CreatedDate"></label>
+            <input asp-for="CreatedDate" type="date" class="form-control" />
+        </div>
+
+        <button class="btn btn-primary">Update</button>
+
+    </form>
+</div>

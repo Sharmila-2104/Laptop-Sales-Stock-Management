@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Sale>
+
+<div class="container mt-4">
+    <h3>Sales List</h3>
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Laptop Id</th>
+                <th>Qty</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.LaptopId</td>
+                    <td>@item.Qty</td>
+                    <td>@item.SaleDate.ToString("dd-MM-yyyy hh:mm tt")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,55 @@
+﻿@{
+    var laptops = ViewBag.Laptops as IEnumerable<Laptop>;
+}
+
+<div class="container col-md-6 mt-4">
+    <h3>Record Sale</h3>
+
+    <form id="saleForm">
+
+        <div class="mb-3">
+            <label>Select Laptop</label>
+            <select name="LaptopId" class="form-control">
+                @foreach (var l in laptops)
+                {
+                    <option value="@l.Id">@l.Brand - @l.Model (Stock:@l.StockQty)</option>
+                }
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label>Quantity</label>
+            <input type="number" name="Qty" id="qty" class="form-control" />
+        </div>
+
+        <button class="btn btn-success">Save Sale</button>
+    </form>
+
+    <div id="msg"></div>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    $("#saleForm").submit(function(e){
+        e.preventDefault();
+
+        if($("#qty").val()<=0){
+            alert("Enter valid qty");
+            return;
+        }
+
+        $.ajax({
+            url:'/Sales/Create',
+            type:'POST',
+            data:$(this).serialize(),
+            success:function(){
+                $("#msg").html("<div class='alert alert-success'>Sale Saved</div>");
+            },
+            error:function(res){
+                alert(res.responseText);
+            }
+        });
+    });
+</script>
